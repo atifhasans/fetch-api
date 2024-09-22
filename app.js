@@ -1,13 +1,11 @@
-
 let currentIndex = 0;
 let users = [];
-
 
 fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => response.json())
     .then(data => {
         users = data;
-        displayUser(users[currentIndex]);
+        displayUser(users[currentIndex]); // Display the first user
     })
     .catch(error => {
         console.error('Error:', error);
@@ -23,7 +21,7 @@ function displayUser(user) {
                     <p><strong>Email:</strong> ${user.email}</p>
                     <p><strong>Address:</strong> ${user.address.street}, ${user.address.city}, ${user.address.zipcode}</p>
                     <p><strong>Phone:</strong> ${user.phone}</p>
-                    <p><strong>Website:</strong> <a href="http://${user.website}">${user.website}</a></p>
+                    <p><strong>Website:</strong> <a href="http://${user.website}" target="_blank">${user.website}</a></p>
                     <p><strong>Company:</strong> ${user.company.name}</p>
                 </div>
             `;
